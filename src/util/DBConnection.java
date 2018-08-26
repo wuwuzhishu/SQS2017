@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 
 public class DBConnection { 
 	private final static String serverName = "localhost"; // 数据库主机名称
-	private final static String portNumber = "3306"; // 数据库主机端口号
+	private final static String portNumber = "3307"; // 数据库主机端口号
 	private final static String mydatabase = "StuCourse";   // 数据库名称，不同的数据库修改数据库的名称
 	private final static String url = "jdbc:mysql://" + serverName + ":" + portNumber + "/" + mydatabase
 					+"?useUnicode=true&characterEncoding=utf8";
