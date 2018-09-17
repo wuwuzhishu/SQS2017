@@ -18,6 +18,7 @@ import util.DateConvert;
 @WebServlet("/StudentServlet")
 public class StudentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	//声明dao层中的StudentDao对象
 	private StudentDao sd;
        
     /**
@@ -26,6 +27,7 @@ public class StudentServlet extends HttpServlet {
     public StudentServlet() {
         super();
         // TODO Auto-generated constructor stub
+        //利用多态的用法，创建接口StudentDao对象的实现类StudentDaoImpl对象
         sd = new StudentDaoImpl();
     }
 
@@ -35,6 +37,9 @@ public class StudentServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//解决表单中中文乱码的问题，为了解决写入数据库中乱码的问题，此条语句必须写在第一条哈
+		request.setCharacterEncoding("utf-8");
+		//通过页面中action参数来决定属于什么操作，然后相应的调用不同的方法
 		String action = request.getParameter("action");
 		if(action.equals("login")) {
 			login(request, response);//调用登录方法
@@ -53,8 +58,6 @@ public class StudentServlet extends HttpServlet {
 	
 	//登录方法
 	private void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//解决表单中中文乱码的问题
-		request.setCharacterEncoding("utf-8");
 		//得到前端表单中的信息
 		String name = request.getParameter("user");
 		String password = request.getParameter("password");
@@ -68,8 +71,6 @@ public class StudentServlet extends HttpServlet {
 
 	//注册方法
 	private void register(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//解决表单中中文乱码的问题
-		request.setCharacterEncoding("utf-8");
 		//得到前端表单中的信息
 		String id = request.getParameter("ID");
 		String name = request.getParameter("user");
