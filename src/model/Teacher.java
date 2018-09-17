@@ -45,7 +45,4 @@ public class Teacher {
 	public void setTypeId(int typeId) {
 		this.typeId = typeId;
 	}
-	
-	
-
 }

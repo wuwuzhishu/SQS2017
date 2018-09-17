@@ -39,7 +39,7 @@ public class StudentDaoTest {
 	@Test
 	public void testRegister() {
 		Student stu = new Student();
-		stu.setStuId("1712205103");
+		stu.setStuId("李四");
 		stu.setStuName("张三");
 		stu.setStuPwd("123456");
 		stu.setStuBirth(new Date());
@@ -49,7 +49,7 @@ public class StudentDaoTest {
 	
 	@Test
 	public void testSignin() {
-		assertTrue(sd.signin("1712205104", "123456"));
+		assertTrue(sd.signin("李四", "123456"));
 	}
 	
 	

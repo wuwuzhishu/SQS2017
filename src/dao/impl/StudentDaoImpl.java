@@ -30,7 +30,7 @@ public class StudentDaoImpl implements StudentDao{
 			psm.setString(3, student.getStuPwd());//密码
 			psm.setString(4, student.getStuMajor());//专业
 			psm.setDate(5, DateConvert.dateToSQLDate(student.getStuBirth()));//生日
-			psm.setInt(6, 1);
+			psm.setInt(6, student.getTypeId());
 			//5.执行数据更新操作
 			int n = psm.executeUpdate();
 			if(n > 0) {

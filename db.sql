@@ -1,9 +1,23 @@
-set names utf8;
+-- phpMyAdmin SQL Dump
+-- version 4.5.2
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: 2018-01-05 08:36:57
+-- 服务器版本： 10.1.16-MariaDB
+-- PHP Version: 5.6.24
+
+
+
+--
+-- Database: `StuCourse`
+--
 
 -- 教务系统
-drop database if exists StuCourse;
+SET FOREIGN_KEY_CHECKS=0;
+DROP DATABASE IF EXISTS StuCourse;
 CREATE DATABASE StuCourse CHARACTER SET utf8 COLLATE utf8_general_ci ;
-use StuCourse;
+USE StuCourse;
 
 -- 用户权限表
 create table usertype
@@ -24,8 +38,8 @@ create table student
 	stuPwd char(20) not null,-- 密码
 	stuMajor char(20) not null, -- 专业
 	stuBirth date, -- 生日
-	typeId int(10) not null,
-	foreign key(typeId) references usertype(typeId)
+	typeId int(10) not null
+	
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- 教师表
@@ -36,8 +50,8 @@ create table teacher
 	tecPwd char(20) not null,-- 密码
 	tecDept char(20) not null, -- 部门
 	tecBirth date, -- 生日
-	typeId int(10) not null ,
-	foreign key(typeId) references usertype(typeId)
+	typeId int(10) not null 
+	
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- 课程表
@@ -54,9 +68,8 @@ create table tec_cls
 (
 	tcId int(10) primary key AUTO_INCREMENT,
 	tecId char(15) not null,-- 工号
-	courId int(10) not null,-- 课程编号
-	foreign key(tecId)  references teacher(tecId),
-	foreign key(courId) references course(courId)
+	courId int(10) not null-- 课程编号
+	
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- 学生选课表
@@ -65,10 +78,8 @@ create table stu_cls
 	scId int(10) primary key AUTO_INCREMENT,
 	stuId char(15) not null,-- 学号
 	courId int(10) not null,-- 课程编号
-	tecId char(15) not null,-- 工号
-	foreign key(stuId) references student(stuId),
-	foreign key(courId) references course(courId),
-	foreign key(tecId) references teacher(tecId)
+	tecId char(15) not null-- 工号
+	
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 -- 成绩表
 create table grade
@@ -77,10 +88,8 @@ create table grade
 	courId int(10) not null,-- 课程编号
 	stuId char(15) not null,-- 学号
 	tecId char(15) not null,-- 工号
-	score int not null, -- 成绩
-	foreign key(courId) references course(courId),
-	foreign key(stuId) references student(stuId),
-	foreign key(tecId) references teacher(tecId)
+	score int not null -- 成绩
+	
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 

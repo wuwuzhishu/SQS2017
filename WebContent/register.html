@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>注册</title>
+</head>
+<body>
+	<form action="StudentServlet?action=register" method="post">
+		<label for="userID">用户ID</label>
+		<input type="text" id="userID" placeholder="请输入用户ID" name="ID"><br>
+		<label for="username">用户姓名</label>
+		<input type="text" id="username" placeholder="请输入用户名" name="user"><br>
+		<label for="userpassword">密码</label>
+		<input type="text" id="userpassword" placeholder="请输入密码" name="password"><br>
+		<label for="usermajor">专业</label>
+		<input type="text" id="usermajor" placeholder="请输入专业" name="major"><br>
+		<label for="userdate">生日</label>
+		<input type="date" id="userdate" name="birth"><br>
+		<label for="usertype">用户权限</label>
+		<input type="text" id="usertype" placeholder="请输入用户的权限"  name="type"><br>
+		<input type="submit" value="注册">
+	</form>
+</body>
+</html>
