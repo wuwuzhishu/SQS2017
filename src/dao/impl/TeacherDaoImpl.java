@@ -63,7 +63,7 @@ public class TeacherDaoImpl implements TeacherDao{
 		//1.建立数据库的连接
 		Connection con = DBConnection.getConnection();
 		//2.要执行的SQL语句
-		String sql = "select * from teacher where tecId=? and tecName=?";
+		String sql = "select * from teacher where tecId=? and tecPwd=?";
 		//3.声明一个Statement
 		PreparedStatement psm = null;
 		//3.声明一个ResultSet对象
